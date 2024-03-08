@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Requests\StoreBeerRequest;
 use App\Http\Requests\UpdateBeerRequest;
+use App\Http\Controllers\Controller;
 use App\Models\Beer;
 
 class BeerController extends Controller
@@ -13,7 +14,7 @@ class BeerController extends Controller
      */
     public function index()
     {
-        //
+        return Beer::all();
     }
 
     /**
