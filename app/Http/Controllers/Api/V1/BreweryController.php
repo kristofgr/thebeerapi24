@@ -2,21 +2,19 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Http\Requests\StoreBeerRequest;
-use App\Http\Requests\UpdateBeerRequest;
+use App\Models\Brewery;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\BeerResource;
-use App\Models\Beer;
+use App\Http\Resources\BreweryResource;
 use Illuminate\Http\Request;
 
-class BeerController extends Controller
+class BreweryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request)
     {
-        $results = Beer::where('published', 1);
+        $results = Brewery::where('published', 1);
         // $results = Beer::all();
 
         $name = $request->query('name');
@@ -25,7 +23,7 @@ class BeerController extends Controller
             // $results->whereRaw("BINARY name  LIKE '%$name%' "); -> if search needs to be case sensitive
         }
 
-        return BeerResource::collection($results->get());
+        return BreweryResource::collection($results->get());
     }
 
     /**
@@ -39,7 +37,7 @@ class BeerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreBeerRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -47,15 +45,15 @@ class BeerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Beer $beer)
+    public function show(Brewery $brewery)
     {
-        return BeerResource::make($beer);
+        return BreweryResource::make($brewery);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Beer $beer)
+    public function edit(Brewery $brewery)
     {
         //
     }
@@ -63,7 +61,7 @@ class BeerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBeerRequest $request, Beer $beer)
+    public function update(Request $request, Brewery $brewery)
     {
         //
     }
@@ -71,7 +69,7 @@ class BeerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Beer $beer)
+    public function destroy(Brewery $brewery)
     {
         //
     }
