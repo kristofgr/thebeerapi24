@@ -17,7 +17,8 @@ class ColorFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'color' => fake()->colorName(),
+            'published' => 1
         ];
     }
 }
