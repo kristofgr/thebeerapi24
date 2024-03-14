@@ -16,13 +16,22 @@ class BeerController extends Controller
      */
     public function index(Request $request)
     {
-        $results = Beer::where('published', 1);
-        // $results = Beer::all();
+        $results = Beer::where('published', 1)->with("brewery", "color");
 
         $name = $request->query('name');
         if ($name) {
             $results->where('name', 'like', '%' . $name . '%');
             // $results->whereRaw("BINARY name  LIKE '%$name%' "); -> if search needs to be case sensitive
+        }
+
+        // $brewery = $request->query('brewery');
+        // if ($brewery) {
+        //     $results->where('brewery_id', $brewery);
+        // }
+
+        $color = $request->query('color');
+        if ($color) {
+            $results->where('color_id', $color);
         }
 
         return BeerResource::collection($results->get());

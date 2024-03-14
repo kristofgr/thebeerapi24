@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\V1\BeerController;
 use App\Http\Controllers\Api\V1\BreweryController;
+use App\Http\Controllers\Api\V1\ColorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('v1')->group(function () {
     Route::apiResource('/beers', BeerController::class);
     Route::apiResource('/breweries', BreweryController::class);
+    Route::apiResource('/colors', ColorController::class);
 });
 
 
