@@ -17,7 +17,8 @@ class BreweryFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->sentence(),
+            'published' => rand(0, 1)
         ];
     }
 }
