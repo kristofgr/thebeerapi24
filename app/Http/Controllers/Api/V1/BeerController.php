@@ -50,8 +50,22 @@ class BeerController extends Controller
      */
     public function store(StoreBeerRequest $request)
     {
-        //
+        return $request->input('name');
+        // return $request;
     }
+
+    // public function store(StorePlayerRequest $request)
+    // {
+    //     $player = Player::create([
+    //         "firstname" => $request->input("firstname"),
+    //         "lastname" => $request->input("lastname"),
+    //         "status" => $request->input("status") ?? 0
+    //     ]);
+    //     return [
+    //         "message" => "Player has been added sucessfully",
+    //         "player" => PlayerResource::make($player)
+    //     ];
+    // }
 
     /**
      * Display the specified resource.
