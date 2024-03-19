@@ -7,11 +7,12 @@ xdebug_enabled: false
 additional_hostnames: []
 additional_fqdns: []
 database:
-  type: mariadb
-  version: "10.4"
+    type: postgres
+    version: "14"
 use_dns_when_possible: true
 composer_version: "2"
 web_environment: []
+
 # Key features of DDEV's config.yaml:
 
 # name: <projectname> # Name of the project, automatically provides
