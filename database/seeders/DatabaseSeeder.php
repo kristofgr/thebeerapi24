@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Color::factory(15)->create();
         \App\Models\Brewery::factory(10)->create();
         \App\Models\Beer::factory(10)->create();
+        \App\Models\Feedback::factory(3)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

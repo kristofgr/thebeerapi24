@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Models\Color;
+use App\Models\Feedback;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreFeedbackRequest;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ColorResource;
+use App\Http\Resources\FeedbackResource;
 
-class ColorController extends Controller
+
+class FeedbackController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $results = Color::where('published', 1);
-        return ColorResource::collection($results->get());
+        //
     }
 
     /**
@@ -29,16 +30,15 @@ class ColorController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreFeedbackRequest $request)
     {
-
         //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Color $color)
+    public function show(Feedback $feedback)
     {
         //
     }
@@ -46,7 +46,7 @@ class ColorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Color $color)
+    public function edit(Feedback $feedback)
     {
         //
     }
@@ -54,7 +54,7 @@ class ColorController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Color $color)
+    public function update(UpdateFeedbackRequest $request, Feedback $feedback)
     {
         //
     }
@@ -62,7 +62,7 @@ class ColorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Color $color)
+    public function destroy(Feedback $feedback)
     {
         //
     }
