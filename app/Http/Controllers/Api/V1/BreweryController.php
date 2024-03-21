@@ -9,8 +9,14 @@ use Illuminate\Http\Request;
 
 class BreweryController extends Controller
 {
+
     /**
-     * Display a listing of the resource.
+     * GET /api/v1/breweries
+     *
+     * This endpoint allows you get all breweries from the database.
+     * Each result contains the entire data as available. 
+     
+     * @queryParam name string Filter by brewery name. This filter acts as a LIKE-functionality.
      */
     public function index(Request $request)
     {
@@ -26,51 +32,14 @@ class BreweryController extends Controller
         return BreweryResource::collection($results->get());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
+     * GET /api/v1/brewery/{id}
+     *
+     * This endpoint allows you get all data for one specific brewery.
      */
     public function show(Brewery $brewery)
     {
         return BreweryResource::make($brewery);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Brewery $brewery)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Brewery $brewery)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Brewery $brewery)
-    {
-        //
     }
 }

@@ -12,7 +12,13 @@ use Illuminate\Http\Request;
 class BeerController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * GET /api/v1/beers
+     *
+     * This endpoint allows you get all beers from the database.
+     * Each result contains the entire data as available. 
+     * 
+     * @queryParam name string Filter by beer name. This filter acts as a LIKE-functionality.
+     * @queryParam color integer Filter by color id.
      */
     public function index(Request $request)
     {
@@ -38,64 +44,12 @@ class BeerController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreBeerRequest $request)
-    {
-        return $request->input('name');
-        // return $request;
-    }
-
-    // public function store(StorePlayerRequest $request)
-    // {
-    //     $player = Player::create([
-    //         "firstname" => $request->input("firstname"),
-    //         "lastname" => $request->input("lastname"),
-    //         "status" => $request->input("status") ?? 0
-    //     ]);
-    //     return [
-    //         "message" => "Player has been added sucessfully",
-    //         "player" => PlayerResource::make($player)
-    //     ];
-    // }
-
-    /**
-     * Display the specified resource.
+     * GET /api/v1/beers/{id}
+     *
+     * This endpoint allows you get all data for one specific beer.
      */
     public function show(Beer $beer)
     {
         return BeerResource::make($beer);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Beer $beer)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateBeerRequest $request, Beer $beer)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Beer $beer)
-    {
-        //
     }
 }

@@ -1,0 +1,347 @@
+openapi: 3.0.3
+info:
+  title: 'The Beer API - documentation'
+  description: 'documentation for The Beer API. Free for personal usage.'
+  version: 1.0.0
+servers:
+  -
+    url: 'https://thebeerapi.com'
+paths:
+  /api/v1/beers:
+    get:
+      summary: 'GET /api/v1/beers'
+      operationId: gETapiv1beers
+      description: "This endpoint allows you get all beers from the database.\nEach result contains the entire data as available."
+      parameters:
+        -
+          in: query
+          name: name
+          description: 'Filter by beer name. This filter acts as a LIKE-functionality.'
+          example: voluptate
+          required: false
+          schema:
+            type: string
+            description: 'Filter by beer name. This filter acts as a LIKE-functionality.'
+            example: voluptate
+        -
+          in: query
+          name: color
+          description: 'Filter by color id.'
+          example: 13
+          required: false
+          schema:
+            type: integer
+            description: 'Filter by color id.'
+            example: 13
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data: []
+                properties:
+                  data:
+                    type: array
+                    example: []
+      tags:
+        - Endpoints
+      security: []
+  '/api/v1/beers/{id}':
+    get:
+      summary: 'GET /api/v1/beers/{id}'
+      operationId: gETapiv1beersid
+      description: 'This endpoint allows you get all data for one specific beer.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    name: 'Mrs. Frederique Willms IV'
+                    description: 'Id et repellat ratione quae.'
+                    color:
+                      id: 15
+                      name: null
+                    brewery:
+                      id: 7
+                      name: 'Aperiam rerum ut quibusdam nemo ut ullam itaque rerum.'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: 'Mrs. Frederique Willms IV'
+                      description:
+                        type: string
+                        example: 'Id et repellat ratione quae.'
+                      color:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 15
+                          name:
+                            type: string
+                            example: null
+                      brewery:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                            example: 7
+                          name:
+                            type: string
+                            example: 'Aperiam rerum ut quibusdam nemo ut ullam itaque rerum.'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the beer.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/breweries:
+    get:
+      summary: 'GET /api/v1/breweries'
+      operationId: gETapiv1breweries
+      description: "This endpoint allows you get all breweries from the database.\nEach result contains the entire data as available."
+      parameters:
+        -
+          in: query
+          name: name
+          description: 'Filter by brewery name. This filter acts as a LIKE-functionality.'
+          example: provident
+          required: false
+          schema:
+            type: string
+            description: 'Filter by brewery name. This filter acts as a LIKE-functionality.'
+            example: provident
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data: []
+                properties:
+                  data:
+                    type: array
+                    example: []
+      tags:
+        - Endpoints
+      security: []
+  '/api/v1/breweries/{id}':
+    get:
+      summary: 'GET /api/v1/brewery/{id}'
+      operationId: gETapiv1breweryid
+      description: 'This endpoint allows you get all data for one specific brewery.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    name: 'Officiis reiciendis expedita et dolorum aut.'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: 'Officiis reiciendis expedita et dolorum aut.'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the brewery.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/colors:
+    get:
+      summary: 'GET /api/v1/colors'
+      operationId: gETapiv1colors
+      description: 'This endpoint allows you get all colors as used as attribute for beer.'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      name: DarkGray
+                    -
+                      id: 2
+                      name: Khaki
+                    -
+                      id: 3
+                      name: Lime
+                    -
+                      id: 4
+                      name: Silver
+                    -
+                      id: 5
+                      name: MediumSeaGreen
+                    -
+                      id: 6
+                      name: FloralWhite
+                    -
+                      id: 7
+                      name: DarkGray
+                    -
+                      id: 8
+                      name: Khaki
+                    -
+                      id: 9
+                      name: SlateBlue
+                    -
+                      id: 10
+                      name: LightSalmon
+                    -
+                      id: 11
+                      name: LavenderBlush
+                    -
+                      id: 12
+                      name: Purple
+                    -
+                      id: 13
+                      name: LavenderBlush
+                    -
+                      id: 14
+                      name: Bisque
+                    -
+                      id: 15
+                      name: Lime
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        name: DarkGray
+                      -
+                        id: 2
+                        name: Khaki
+                      -
+                        id: 3
+                        name: Lime
+                      -
+                        id: 4
+                        name: Silver
+                      -
+                        id: 5
+                        name: MediumSeaGreen
+                      -
+                        id: 6
+                        name: FloralWhite
+                      -
+                        id: 7
+                        name: DarkGray
+                      -
+                        id: 8
+                        name: Khaki
+                      -
+                        id: 9
+                        name: SlateBlue
+                      -
+                        id: 10
+                        name: LightSalmon
+                      -
+                        id: 11
+                        name: LavenderBlush
+                      -
+                        id: 12
+                        name: Purple
+                      -
+                        id: 13
+                        name: LavenderBlush
+                      -
+                        id: 14
+                        name: Bisque
+                      -
+                        id: 15
+                        name: Lime
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        name:
+                          type: string
+                          example: DarkGray
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/feedback:
+    post:
+      summary: 'POST /api/v1/feedback'
+      operationId: pOSTapiv1feedback
+      description: 'This endpoint allows endusers to post feedback about our beautiful API.'
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: yskwrrt
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: brigitte.reilly@example.net
+                message:
+                  type: string
+                  description: 'Must not be greater than 500 characters.'
+                  example: pbaqilouonnpnlpwp
+              required:
+                - name
+                - email
+                - message
+      security: []
+tags:
+  -
+    name: Endpoints
+    description: ''
