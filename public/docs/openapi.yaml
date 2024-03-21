@@ -17,22 +17,22 @@ paths:
           in: query
           name: name
           description: 'Filter by beer name. This filter acts as a LIKE-functionality.'
-          example: voluptate
+          example: in
           required: false
           schema:
             type: string
             description: 'Filter by beer name. This filter acts as a LIKE-functionality.'
-            example: voluptate
+            example: in
         -
           in: query
           name: color
           description: 'Filter by color id.'
-          example: 13
+          example: 17
           required: false
           schema:
             type: integer
             description: 'Filter by color id.'
-            example: 13
+            example: 17
       responses:
         200:
           description: ''
@@ -126,12 +126,12 @@ paths:
           in: query
           name: name
           description: 'Filter by brewery name. This filter acts as a LIKE-functionality.'
-          example: provident
+          example: dolor
           required: false
           schema:
             type: string
             description: 'Filter by brewery name. This filter acts as a LIKE-functionality.'
-            example: provident
+            example: dolor
       responses:
         200:
           description: ''
@@ -140,11 +140,26 @@ paths:
               schema:
                 type: object
                 example:
-                  data: []
+                  data:
+                    -
+                      id: 6
+                      name: 'Voluptatem dolorem cupiditate magnam qui.'
                 properties:
                   data:
                     type: array
-                    example: []
+                    example:
+                      -
+                        id: 6
+                        name: 'Voluptatem dolorem cupiditate magnam qui.'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 6
+                        name:
+                          type: string
+                          example: 'Voluptatem dolorem cupiditate magnam qui.'
       tags:
         - Endpoints
       security: []
@@ -327,15 +342,15 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: yskwrrt
+                  example: qpzvohdgo
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: brigitte.reilly@example.net
+                  example: lukas95@example.net
                 message:
                   type: string
                   description: 'Must not be greater than 500 characters.'
-                  example: pbaqilouonnpnlpwp
+                  example: pxwrebexbyu
               required:
                 - name
                 - email

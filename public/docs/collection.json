@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "The Beer API - documentation",
-        "_postman_id": "83a054b6-c9dd-441e-ade9-fcd30e1fac4f",
+        "_postman_id": "a8ecee96-97d6-4943-bd1d-ffdfcdc79195",
         "description": "documentation for The Beer API. Free for personal usage.",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -28,18 +28,18 @@
                             "query": [
                                 {
                                     "key": "name",
-                                    "value": "voluptate",
+                                    "value": "in",
                                     "description": "Filter by beer name. This filter acts as a LIKE-functionality.",
                                     "disabled": false
                                 },
                                 {
                                     "key": "color",
-                                    "value": "13",
+                                    "value": "17",
                                     "description": "Filter by color id.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/beers?name=voluptate&color=13"
+                            "raw": "{{baseUrl}}\/api\/v1\/beers?name=in&color=17"
                         },
                         "method": "GET",
                         "header": [
@@ -75,7 +75,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "54"
+                                    "value": "59"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -139,7 +139,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "53"
+                                    "value": "58"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -161,12 +161,12 @@
                             "query": [
                                 {
                                     "key": "name",
-                                    "value": "provident",
+                                    "value": "dolor",
                                     "description": "Filter by brewery name. This filter acts as a LIKE-functionality.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "{{baseUrl}}\/api\/v1\/breweries?name=provident"
+                            "raw": "{{baseUrl}}\/api\/v1\/breweries?name=dolor"
                         },
                         "method": "GET",
                         "header": [
@@ -202,7 +202,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "52"
+                                    "value": "57"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -210,7 +210,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"data\":[]}",
+                            "body": "{\"data\":[{\"id\":6,\"name\":\"Voluptatem dolorem cupiditate magnam qui.\"}]}",
                             "name": ""
                         }
                     ]
@@ -266,7 +266,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "51"
+                                    "value": "56"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -322,7 +322,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "50"
+                                    "value": "55"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -357,7 +357,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"yskwrrt\",\"email\":\"brigitte.reilly@example.net\",\"message\":\"pbaqilouonnpnlpwp\"}"
+                            "raw": "{\"name\":\"qpzvohdgo\",\"email\":\"lukas95@example.net\",\"message\":\"pxwrebexbyu\"}"
                         },
                         "description": "This endpoint allows endusers to post feedback about our beautiful API.",
                         "auth": {

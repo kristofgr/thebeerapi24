@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\V1\BeerController;
 use App\Http\Controllers\Api\V1\BreweryController;
 use App\Http\Controllers\Api\V1\ColorController;
+use App\Http\Controllers\Api\V1\FeedbackController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,5 +31,8 @@ Route::prefix('v1')->group(function () {
     ]);
     Route::apiResource('/colors', ColorController::class)->only([
         'index'
+    ]);
+    Route::apiResource('/feedback', FeedbackController::class)->only([
+        'store'
     ]);
 });

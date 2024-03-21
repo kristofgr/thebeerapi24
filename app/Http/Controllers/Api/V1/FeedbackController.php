@@ -3,67 +3,31 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Feedback;
-use Illuminate\Http\Request;
 use App\Http\Requests\StoreFeedbackRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\FeedbackResource;
 
-
 class FeedbackController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * POST /api/v1/feedback
+     *
+     * This endpoint allows endusers to post feedback about our beautiful API.
      */
     public function store(StoreFeedbackRequest $request)
     {
-        //
-    }
+        // Validation passed, get all validated data
+        $data = $request->validated();
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Feedback $feedback)
-    {
-        //
-    }
+        // Add the current IP
+        $data['ip'] = $request->ip();
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Feedback $feedback)
-    {
-        //
-    }
+        $feedback = Feedback::create($data);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateFeedbackRequest $request, Feedback $feedback)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Feedback $feedback)
-    {
-        //
+        return response([
+            'succes' => true,
+            'data' => FeedbackResource::make($feedback)
+        ], 201);
     }
 }
