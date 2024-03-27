@@ -22,17 +22,19 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('v1')->group(function () {
-    Route::apiResource('/beers', BeerController::class)->only([
-        'index', 'show'
-    ]);
-    Route::apiResource('/breweries', BreweryController::class)->only([
-        'index', 'show'
-    ]);
-    Route::apiResource('/colors', ColorController::class)->only([
-        'index'
-    ]);
-    Route::apiResource('/feedback', FeedbackController::class)->only([
-        'store'
-    ]);
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::prefix('v1')->group(function () {
+        Route::apiResource('/beers', BeerController::class)->only([
+            'index', 'show'
+        ]);
+        Route::apiResource('/breweries', BreweryController::class)->only([
+            'index', 'show'
+        ]);
+        Route::apiResource('/colors', ColorController::class)->only([
+            'index'
+        ]);
+        Route::apiResource('/feedback', FeedbackController::class)->only([
+            'store'
+        ]);
+    });
 });
