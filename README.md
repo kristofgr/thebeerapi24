@@ -18,4 +18,6 @@ To spin up a local environment for this project, follow the following steps:
 -   ddev composer update
 -   ddev php artisan key:generate
 -   ddev php artisan migrate --seed
+-   ddev npm i
+-   ddev npm run build
 -   ddev launch
