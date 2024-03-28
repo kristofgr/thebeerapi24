@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Contracts\Validation\Validator;
 
 class StoreBeerRequest extends FormRequest
 {
@@ -23,7 +25,13 @@ class StoreBeerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:255',
+            'description' => 'required|string|max:5000',
         ];
+    }
+
+    public function failedValidation(Validator $validator)
+    {
+        return back()->withErrors($validator->errors());
     }
 }

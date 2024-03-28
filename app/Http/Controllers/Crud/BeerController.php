@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Crud;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreBeerRequest;
 use App\Models\Beer;
 use Illuminate\Http\Request;
 
@@ -24,15 +25,19 @@ class BeerController extends Controller
      */
     public function create()
     {
-        //
+        return view('beers.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreBeerRequest $request)
     {
-        //
+        // Validation passed, get all validated data
+        $data = $request->validated();
+        Beer::create($data);
+
+        return redirect()->route('beers.index');
     }
 
     /**
